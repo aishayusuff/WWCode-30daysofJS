@@ -38,7 +38,7 @@
       color: #e91e63;
       font-family: 'helvetica neue', sans-serif;
       font-weight: 100;
-      font-size: 50px;
+      font-size: 20px;
     }
 
     img {
@@ -66,14 +66,24 @@
   <script>
 
     //select the elements
-      const spaceBtn = document.getElementById('spacing');
-      const blurBtn = document.getElementById('blur');
-      const baseColorBtn = document.getElementById('base');
+
+      const inputs = document.querySelector('.controls');
       
-      // console.log(spaceBtn, blurBtn, baseColorBtn)
+      const handlesUpdate = function(e) {
+        if (e.target.tagName === 'INPUT') {
+          const value = e.target.value;
+          const input = e.target;
+          const sizing = input.dataset.sizing || ''; 
+
+          //Set CSS property dynamically
+          document.documentElement.style.setProperty(`--${input.name}`, `${value}${sizing}`)
+        }
+      }
+
+      inputs.addEventListener('input', handlesUpdate);
 
     //get their values
-    
+
 
     //pass it to the CSS property as inline style
 
