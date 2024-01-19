@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scoped CSS Variables and JS</title>
+  <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+<body>
+  <h2>Update CSS Variables with <span class='hl'>JavaScript</span></h2>
+
+  <main>
+    <div class="controls">
+      <label for="spacing">Spacing:</label>
+      <input id="spacing" type="range" name="spacing" min="0" max="200" value="10" data-sizing="px">
+  
+      <label for="blur">Blur:</label>
+      <input id="blur" type="range" name="blur" min="0" max="25" value="3" data-sizing="px">
+  
+      <label for="base">Base Color</label>
+      <input id="base" type="color" name="base" value="#a9cf05">
+
+      <label for="grayscale">Grayscale</label>
+      <input id="grayscale" type="range" name="grayscale" min="0" max="100" value="0" data-sizing="%">
+    </div>
+  
+    <img src="./profile.png">
+  </main>
+
+  <footer>
+    <p>Copyright © 2024 <a href="https://github.com/aishayusuff">Aishat Yusuff</a> All Rights Reserved.</p>
+  </footer>
+
+  <style>
+
+    /*
+      misc styles, nothing to do with CSS variables
+    */
+    :root {
+      --base: #e91e63;
+      --spacing: 35px;
+      --blur: 10px;
+      --img-filter: grayscale(0%);
+    }
+
+    body {
+      text-align: center;
+      background: #07253d;
+      color: #e91e63;
+      font-family: 'helvetica neue', sans-serif;
+      font-weight: 100;
+      font-size: 20px;
+    }
+
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur)) var(--img-filter);
+    }
+
+    .hl {
+      color: var(--base);
+      text-decoration: underline;
+      text-underline-offset: 0.5rem;
+
+      &:hover {
+        color: #d67c9a;
+      }
+    }
+
+    h2 {
+      color: wheat;
+    }
+    .controls {
+      margin-bottom: 50px;
+    }
+
+    input {
+      width: 100px;
+    }
+
+    footer a {
+      color: wheat;
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 5rem;
+      font-size: 0.75rem;
+    }
+  </style>
+
+  <script>
+
+    //select the common parent of the inputs
+    const inputs = document.querySelector('.controls');
+      
+    //Callback function
+    const handlesUpdate = function(e) {
+      if (e.target.tagName === 'INPUT') {
+        const value = e.target.value;
+        const input = e.target;
+        const sizing = input.dataset.sizing || '';
+
+
+        //Set CSS property dynamically
+        if (input.name === 'grayscale') {
+          document.documentElement.style.setProperty(`--img-filter`, `grayscale(${value}${sizing})`);
+        } else {
+          document.documentElement.style.setProperty(`--${input.name}`, `${value}${sizing}`)
+        }   
+      }
+    }
+
+    //Attaching event listner to common parent 
+    inputs.addEventListener('input', handlesUpdate);
+
+  </script>
+
+</body>
+</html>
