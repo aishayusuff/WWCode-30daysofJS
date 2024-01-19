@@ -10,17 +10,25 @@
 
   <main>
     <div class="controls">
-      <label for="spacing">Spacing:</label>
-      <input id="spacing" type="range" name="spacing" min="0" max="200" value="10" data-sizing="px">
+      <div class="control">
+        <label for="spacing">Spacing:</label>
+        <input id="spacing" type="range" name="spacing" min="0" max="200" value="10" data-sizing="px">
+      </div>
   
-      <label for="blur">Blur:</label>
-      <input id="blur" type="range" name="blur" min="0" max="25" value="3" data-sizing="px">
-  
-      <label for="base">Base Color</label>
-      <input id="base" type="color" name="base" value="#a9cf05">
+      <div class="control">
+        <label for="blur">Blur:</label>
+        <input id="blur" type="range" name="blur" min="0" max="25" value="3" data-sizing="px">
+      </div>
+      
+      <div class="control">
+        <label for="base">Base Color</label>
+        <input id="base" type="color" name="base" value="#a9cf05">
+      </div>
 
-      <label for="grayscale">Grayscale</label>
-      <input id="grayscale" type="range" name="grayscale" min="0" max="100" value="0" data-sizing="%">
+      <div class="control">
+        <label for="grayscale">Grayscale</label>
+        <input id="grayscale" type="range" name="grayscale" min="0" max="100" value="0" data-sizing="%">
+      </div>
     </div>
   
     <img src="./profile.png">
@@ -49,6 +57,11 @@
       font-family: 'helvetica neue', sans-serif;
       font-weight: 100;
       font-size: 20px;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: space-around;
     }
 
     img {
