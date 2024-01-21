@@ -78,6 +78,10 @@
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
+    console.log(data.reduce((obj, datum) => { 
+      obj[datum] = (obj[datum] ||0) + 1;
+      return obj
+    }, {}))
   </script>
 </body>
 </html>
