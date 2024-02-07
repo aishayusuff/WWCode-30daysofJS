@@ -70,9 +70,9 @@
     }
 
     .panel > *:first-child { transform: translateY(-100%);}
-    .panel.open-active >*:first-child {transform: translateY(0);}
+    .panel.active >*:first-child {transform: translateY(0);}
     .panel > *:last-child {transform: translateY(100%);}
-    .panel.panel.open-active > *:last-child {transform: translateY(0);}
+    .panel.active > *:last-child {transform: translateY(0);}
 
     .panel p {
       text-transform: uppercase;
@@ -87,7 +87,7 @@
 
     .panel.open {
       font-size: 40px;
-      flex: 5;
+      flex: 4;
     }
 
   </style>
@@ -125,10 +125,11 @@
     const panelsContainer = document.querySelector(".panels");
     const panels = document.querySelectorAll(".panel")
 
-    console.log(panels)
-
-
+    //To open panel
     panelsContainer.addEventListener("click", (e) => {
+      if (!e.target.classList.contains("panel")) {
+        return
+      }
       panels.forEach(panel => {
         if (e.target === panel) {
           panel.classList.toggle("open")
@@ -137,6 +138,24 @@
         }
       })
     })
+
+
+    //To bring words into view
+    panelsContainer.addEventListener("transitionend", (e) => {
+      console.log(e.target)
+      
+      let targetPanel = e.target.closest(".panel")
+      console.log(targetPanel)
+
+      if (!targetPanel) {
+        return;
+      }
+
+      if (e.propertyName.includes("flex")) {
+        targetPanel.classList.toggle("active")
+        console.log('true')
+      }
+      })
   </script>
 
 
