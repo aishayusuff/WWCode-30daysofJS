@@ -10,7 +10,7 @@ This project employed ample use of the  **transform** CSS property, so I read up
 ### Project 3: [CSS Variables](https://aishayusuff.github.io/WWCode-30daysofJS/03%20-%20CSS%20Variables/)
 I employed one of my concepts in JavaScript (Event Delegation) to this project. This helped me optimised the event listening I had to do for the inputs. I also went further to include an input for adding a **grayscale filter**, which was a significant learning curve. I was also able to learn about the **setProperty()** method on the **documentElement**, which reminded me that I have more reading to do. 
 
-### Project 4: [Array Cardio] (https://aishayusuff.github.io/WWCode-30daysofJS/04%20-%20Array%20Cardio%20Day%201/)
+### Project 4: [Array Cardio](https://aishayusuff.github.io/WWCode-30daysofJS/04%20-%20Array%20Cardio%20Day%201/)
 This was a fun way to practice several array methods like **sort**, **reduce**, **map**, **filter**, etc. I enjoyed refrehing my knowledge of these methods and also using **console.table** to visualise results in the console, in a tabular format. I will definitely practice these array methods moving forward as this particular project helped me during a live coding interview.
 
 ### Project 5: [Flex Panel Gallery](https://aishayusuff.github.io/WWCode-30daysofJS/05%20-%20Flex%20Panel%20Gallery/)
